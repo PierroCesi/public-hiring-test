@@ -12,8 +12,6 @@ export class CarbonEmissionRecipe extends BaseEntity {
     })
     name: string;
 
-    // Une recette peut avoir plusieurs ingrédients
-    // Si on supprime la recette, on supprime les ingrédients associés
     @OneToMany(() => RecipeIngredient, ingredient => ingredient.recipe, {
         cascade: ["insert", "update", "remove"],
         eager: true

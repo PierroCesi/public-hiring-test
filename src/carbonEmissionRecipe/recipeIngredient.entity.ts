@@ -1,4 +1,4 @@
-import { BaseEntity, BeforeInsert, BeforeUpdate, Column, Entity, JoinColumn, ManyToOne, PrimaryGeneratedColumn } from "typeorm";
+import { BaseEntity, Column, Entity, JoinColumn, ManyToOne, PrimaryGeneratedColumn } from "typeorm";
 import { CarbonEmissionFactor } from "../carbonEmissionFactor/carbonEmissionFactor.entity";
 import { CarbonEmissionRecipe } from "./carbonEmissionRecipe.entity";
 
@@ -34,8 +34,6 @@ export class RecipeIngredient extends BaseEntity {
     })
     unit: string;
 
-    @BeforeInsert()
-    @BeforeUpdate()
     sanitize() {
         if (!this.recipe) {
             throw new Error("Recipe is required");

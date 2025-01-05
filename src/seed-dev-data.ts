@@ -180,10 +180,6 @@ export const TEST_CARBON_EMISSION_RECIPES = [
   );
 
   recipeEntity.ingredients = ingredients;
-  // recipeEntity.totalCarbonEmission = calculateTotalEmission(ingredients.map(ingredient => ({
-  //   carbonEmissionFactor: ingredient.carbonEmissionFactor,
-  //   value: ingredient.value,
-  // })));
   recipeEntity.totalCarbonEmission = null
 
   return recipeEntity;
@@ -204,7 +200,6 @@ export const seedTestCarbonEmissionRecipes = async () => {
     await dataSource.initialize();
   }
 
-  // Attendre que les facteurs soient sauvegardés avant de créer les recettes
   await seedTestCarbonEmissionFactors();
 
   const carbonEmissionRecipesService =

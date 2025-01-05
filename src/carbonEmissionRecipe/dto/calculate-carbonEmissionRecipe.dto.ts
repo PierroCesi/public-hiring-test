@@ -8,7 +8,6 @@ export class CalculateCarbonEmissionRecipeDto {
         name: string;
         quantity: number;
         unit: string;
-        //emissionCO2e: number;
     }[];
 
     static fromEntity(recipe: CarbonEmissionRecipe): CalculateCarbonEmissionRecipeDto {
@@ -20,7 +19,6 @@ export class CalculateCarbonEmissionRecipeDto {
                 name: ingredient.carbonEmissionFactor.name,
                 quantity: ingredient.value,
                 unit: ingredient.unit,
-                //emissionCO2e: ingredient.carbonEmissionFactor.emissionCO2eInKgPerUnit * ingredient.value
             }))
         };
     }
